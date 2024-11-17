@@ -1,0 +1,35 @@
+#include <iostream>
+
+class MyClass {
+private:
+    int value;
+
+public:
+    // Constructor to initialize value
+    MyClass(int val) : value(val) {}
+
+    // Conversion operator to convert MyClass to int
+    operator int() const {
+        return value;  // Return the value stored in the object
+    }
+
+    // Function to display the value of MyClass
+    void show() const {
+        std::cout << "MyClass value: " << value << std::endl;
+    }
+};
+
+// Function that takes an int as a parameter
+void printInt(int val) {
+    std::cout << "Received int: " << val << std::endl;
+}
+
+int main() {
+    MyClass obj(42); // Create an object of MyClass
+
+    // We can pass MyClass object directly to printInt, 
+    // because MyClass has a conversion operator to int
+    printInt(obj);  // Conversion operator is called here
+    
+    return 0;
+}

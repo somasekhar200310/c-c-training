@@ -11,3 +11,18 @@ int main() {
 
     return 0;
 }
+
+
+void printValue(const int* ptr) {
+    std::cout << "Value: " << *ptr << std::endl;
+}
+
+int main() {
+    int a = 10;
+    int* ptr = &a;  // Non-const pointer
+
+    // Adding const qualifier using const_cast to pass to a function that expects a const int*
+    printValue(const_cast<const int*>(ptr));  // Pass non-const pointer as const pointer
+
+    return 0;
+}

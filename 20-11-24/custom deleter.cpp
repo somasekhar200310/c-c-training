@@ -7,8 +7,8 @@ class FileResource {
 public:
     FileResource(const std::string& filename) {
         file.open(filename);
-        if (!file) {
-            throw std::ios_base::failure("Failed to open file");
+        if (!file.is_open()) {
+            throw std::runtime_error("Failed to open file");
         }
         std::cout << "File opened: " << filename << std::endl;
     }
